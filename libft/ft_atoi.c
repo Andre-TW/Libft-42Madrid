@@ -10,9 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-//#include "libft.h"
+#include "libft.h"
 
-int	ft_atoi(const char *p)
+int	ft_atoi(const char *nptr)
 {
 	int	sign;
 	int	res;
@@ -21,20 +21,20 @@ int	ft_atoi(const char *p)
 	sign = 1;
 	res = 0;
 	ctr = 0;
-	while (p[ctr] == ' ' || p[ctr] == '\t' || p[ctr] == '\n'
-		|| p[ctr] == '\v' || p[ctr] == '\f' || p[ctr] == '\r')
+	while (nptr[ctr] == ' ' || nptr[ctr] == '\t' || nptr[ctr] == '\n'
+		|| nptr[ctr] == '\v' || nptr[ctr] == '\f' || nptr[ctr] == '\r')
 		ctr++;
-	if (p[ctr] == '-' || p[ctr] == '+')
+	if (nptr[ctr] == '-' || nptr[ctr] == '+')
 	{
-		if (p[ctr] == '-')
+		if (nptr[ctr] == '-')
 		{
 			sign = -1;
 			ctr++;
 		}
 	}
-	while (p[ctr] >= '0' && p[ctr] <= '9')
+	while (nptr[ctr] >= '0' && nptr[ctr] <= '9')
 	{
-		res = 10 * res + (p[ctr] - '0');
+		res = 10 * res + (nptr[ctr] - '0');
 		ctr++;
 	}
 	return (res * sign);
@@ -42,7 +42,7 @@ int	ft_atoi(const char *p)
 /*#include <stdio.h>
 
 int main() {
-    char s[] = "-9124";
+    char s[] = "-2147483";
     printf("%d", ft_atoi(s));
     return 0;
 }*/
