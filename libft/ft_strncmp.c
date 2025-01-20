@@ -1,40 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: andsoare <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/20 14:16:47 by andsoare          #+#    #+#             */
-/*   Updated: 2025/01/20 14:19:13 by andsoare         ###   ########.fr       */
+/*   Created: 2025/01/20 14:54:17 by andsoare          #+#    #+#             */
+/*   Updated: 2025/01/20 15:15:43 by andsoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "libft.h"
 
-char	*ft_strchr(const char *s, int c)
+//#include "libft.h"
+
+int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	char	cb;
+	unsigned int	i;
 
-	cb = (char)c;
-	while (*s)
+	i = 0;
+	while (i < n && s1[i] != '0' && s2[i] != '\0')
 	{
-		if (*s == cb)
+		if (s1[i] != s2[i])
 		{
-			return ((char *)s);
+			return (s1[i] - s2[i]);
 		}
-		s++;
+		i++;
 	}
-	if (cb == '\0')
-	{
-		return ((char *)s);
-	}
-	return (NULL);
+	return (s1[i] - s2[i]);
 }
+
 /*#include <stdio.h>
 int main()
 {
-	const char *tst = "hello world";
-	char ch = 'l';
-	printf("sei la '%c' %s\n", ch, ft_strchr(tst,ch));
+	char str1[] = "testando i8so";
+	char str2[] = "testando isso";
+	int c = ft_strncmp(str1,str2, 8);
+	printf ("resultado: %d\n", c);
 	return (0);
+
 }*/

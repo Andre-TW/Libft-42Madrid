@@ -1,40 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: andsoare <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/20 14:16:47 by andsoare          #+#    #+#             */
-/*   Updated: 2025/01/20 14:19:13 by andsoare         ###   ########.fr       */
+/*   Created: 2025/01/20 16:20:32 by andsoare          #+#    #+#             */
+/*   Updated: 2025/01/20 16:23:41 by andsoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "libft.h"
 
-char	*ft_strchr(const char *s, int c)
+void	ft_putstr_fd(char *s, int fd)
 {
-	char	cb;
+	int	i;
 
-	cb = (char)c;
-	while (*s)
+	i = 0;
+	while (s[i] != '\0')
 	{
-		if (*s == cb)
-		{
-			return ((char *)s);
-		}
-		s++;
+		write (fd, &s[i], 1);
+		i++;
 	}
-	if (cb == '\0')
-	{
-		return ((char *)s);
-	}
-	return (NULL);
 }
-/*#include <stdio.h>
-int main()
-{
-	const char *tst = "hello world";
-	char ch = 'l';
-	printf("sei la '%c' %s\n", ch, ft_strchr(tst,ch));
-	return (0);
-}*/
