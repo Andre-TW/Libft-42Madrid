@@ -1,25 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: andsoare <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/20 16:20:32 by andsoare          #+#    #+#             */
-/*   Updated: 2025/01/21 20:53:14 by andsoare         ###   ########.fr       */
+/*   Created: 2025/01/26 21:15:36 by andsoare          #+#    #+#             */
+/*   Updated: 2025/01/26 21:25:08 by andsoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putstr_fd(char *s, int fd)
+size_t	ft_nbrlen(int v)
 {
-	int	i;
+	int i;
 
 	i = 0;
-	while (s[i] != '\0')
+	if (n < 0)
 	{
-		ft_putchar_fd(s[i], fd);
+		n *= -1;
+	}
+	while (n != 0)
+	{
+		n /= 10;
 		i++;
 	}
+	return (i);
+}
+char	*ft_itoa(int n)
+{
+	
 }

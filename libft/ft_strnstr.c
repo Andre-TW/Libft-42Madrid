@@ -6,17 +6,16 @@
 /*   By: andsoare <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 15:20:48 by andsoare          #+#    #+#             */
-/*   Updated: 2025/01/20 16:33:13 by andsoare         ###   ########.fr       */
+/*   Updated: 2025/01/24 21:26:16 by andsoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-//#include "libft.h"
-//#include <stddef.h>
+#include "libft.h"
 
 char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
-	int	i;
-	int	c;
+	size_t	i;
+	size_t	c;
 
 	i = 0;
 	c = 0;

@@ -6,7 +6,7 @@
 /*   By: andsoare <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 21:32:59 by andsoare          #+#    #+#             */
-/*   Updated: 2025/01/15 21:40:23 by andsoare         ###   ########.fr       */
+/*   Updated: 2025/01/24 21:07:55 by andsoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ void	ft_bzero(void *s, size_t n)
 {
 	unsigned char	*ptr;
 
+	ptr = s;
 	while (n-- > 0)
 		*ptr++ = 0;
 }
