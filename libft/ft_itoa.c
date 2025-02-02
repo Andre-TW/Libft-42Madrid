@@ -5,30 +5,55 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: andsoare <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/26 21:15:36 by andsoare          #+#    #+#             */
-/*   Updated: 2025/01/26 21:25:08 by andsoare         ###   ########.fr       */
+/*   Created: 2025/02/02 15:37:39 by andsoare          #+#    #+#             */
+/*   Updated: 2025/02/02 15:38:10 by andsoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_nbrlen(int v)
+static int	num_digit(long num)
 {
-	int i;
+	int	cur;
 
-	i = 0;
-	if (n < 0)
+	cur = 0;
+	if (num == 0)
+		return (1);
+	if (num < 0)
+		cur++;
+	while (num != 0)
 	{
-		n *= -1;
+		num = num / 10;
+		cur++;
 	}
-	while (n != 0)
-	{
-		n /= 10;
-		i++;
-	}
-	return (i);
+	return (cur);
 }
+
 char	*ft_itoa(int n)
 {
-	
+	long	len;
+	long	nl;
+	char	*result;
+
+	len = num_digit(n);
+	nl = n;
+	if (n < 0)
+		nl *= -1;
+	result = malloc(sizeof(char) * (len + 1));
+	if (!result)
+		return (NULL);
+	result[len] = 0;
+	if (nl == 0)
+		result[0] = '0';
+	else
+	{
+		while (len--, nl != 0)
+		{
+			result[len] = (nl % 10) + '0';
+			nl = (nl - (nl % 10)) / 10;
+		}
+		if (n < 0)
+			result[len] = '-';
+	}
+	return (result);
 }

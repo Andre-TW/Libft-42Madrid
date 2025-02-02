@@ -1,25 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: andsoare <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/14 17:53:12 by andsoare          #+#    #+#             */
-/*   Updated: 2025/02/02 17:31:09 by andsoare         ###   ########.fr       */
+/*   Created: 2025/01/28 17:35:48 by andsoare          #+#    #+#             */
+/*   Updated: 2025/01/28 17:41:16 by andsoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlen(const char *s)
+char	*ft_strtrim(char const *s1, char const *set)
 {
-	int	i;
+	char	*trim;
+	size_t	st;
+	size_t	end;
+	size_t	len;
 
-	i = 0;
-	while (s[i] != '\0')
-	{
-		i++;
-	}
-	return (i);
+	if (!s1 || !set)
+		return (NULL);
+	st = 0;
+	while (s1[st] && ft_strchr(set, s1[st]))
+		st++;
+	end = ft_strlen(s1);
+	while (end > st && ft_strchr(set, s1[end -1]))
+		end--;
+	len = end - st;
+	trim = (char *)malloc(len + 1);
+	if (!trim)
+		return (NULL);
+	ft_strlcpy(trim, &s1[st], len + 1);
+	return (trim);
 }
